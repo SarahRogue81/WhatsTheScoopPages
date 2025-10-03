@@ -34,3 +34,10 @@ pre {
   margin: 32px;
   padding: 16px;
 }
+
+@media (max-width: 1124px) {
+  /* Styles for screens 1124px and smaller */
+  img {
+    width: 100%;
+  }
+}
