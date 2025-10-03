@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block head_meta %} {% if
+articles_page.twitter_username %}
+<meta
+  name="twitter:creator"
+  content="@{{ articles_page.object_list[0].twitter_username }}"
+/>
+{% elif TWITTER_USERNAME %}
+<meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}" />
+{% endif %}
+<meta
+  name="description"
+  content="{{ articles_page.summary | striptags | safe }}"
+/>
+{% endblock %} {% block content %}
+<div class="w3-container w3-mobile">
+  <div class="w3-panel w3-theme w3-center">
+    <div class="w3-container w3-cell">
+      <h1>{{ articles_page.object_list[0].title }}</h1>
+    </div>
+    <div class="w3-container w3-cell w3-cell-middle w3-right">
+      by {{ AUTHOR }} on {{ articles_page.object_list[0].date.strftime("%B %d,
+      %Y") }}
+    </div>
+  </div>
+</div>
+
+<!-- Single post display -->
+<article class="w3-container">
+  <div class="w3-panel w3-border w3-padding-16 w3-paper">
+    <div class="w3-cell-row w3-mobile">
+      <div class="w3-container w3-cell">
+        {{ articles_page.object_list[0].content }}
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Navigation arrows -->
+<div class="w3-container w3-center w3-margin-bottom">
+  <div class="w3-bar">
+    <!-- First page -->
+    <span class="w3-bar-item w3-button w3-disabled">
+      <i class="fa-solid fa-angles-left"></i> First
+    </span>
+
+    <!-- Previous page -->
+    <span class="w3-bar-item w3-button w3-disabled">
+      <i class="fa-solid fa-angle-left"></i> Previous
+    </span>
+
+    <!-- Page indicator -->
+    <span class="w3-bar-item w3-button w3-theme-l3"> 1 of 17 </span>
+
+    <!-- Next page -->
+    <a href="/page/2" class="w3-bar-item w3-button w3-theme-dark">
+      Next <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+    <!-- Last page -->
+    <a href="/page/17" class="w3-bar-item w3-button w3-theme-dark">
+      Last <i class="fa-solid fa-angles-right"></i>
+    </a>
+  </div>
+</div>
+{% endblock %}
