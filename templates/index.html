@@ -39,27 +39,65 @@ articles_page.twitter_username %}
 <div class="w3-container w3-center w3-margin-bottom">
   <div class="w3-bar">
     <!-- First page -->
+    {% if articles_page.has_previous() %}
+    <a
+      href="{{ SITEURL }}/{{ page_name }}.html"
+      class="w3-bar-item w3-button w3-theme-dark"
+    >
+      <i class="fa-solid fa-angles-left"></i> First
+    </a>
+    {% else %}
     <span class="w3-bar-item w3-button w3-disabled">
       <i class="fa-solid fa-angles-left"></i> First
     </span>
+    {% endif %}
 
     <!-- Previous page -->
+    {% if articles_page.has_previous() %}
+    <a
+      href="{{ SITEURL }}/{{ articles_previous_page.url }}"
+      class="w3-bar-item w3-button w3-theme-dark"
+    >
+      <i class="fa-solid fa-angle-left"></i> Previous
+    </a>
+    {% else %}
     <span class="w3-bar-item w3-button w3-disabled">
       <i class="fa-solid fa-angle-left"></i> Previous
     </span>
+    {% endif %}
 
     <!-- Page indicator -->
-    <span class="w3-bar-item w3-button w3-theme-l3"> 1 of 17 </span>
+    <span class="w3-bar-item w3-button w3-theme-l3">
+      {{ articles_page.number }} of {{ articles_paginator.num_pages }}
+    </span>
 
     <!-- Next page -->
-    <a href="/page/2" class="w3-bar-item w3-button w3-theme-dark">
+    {% if articles_page.has_next() %}
+    <a
+      href="{{ SITEURL }}/{{ articles_next_page.url }}"
+      class="w3-bar-item w3-button w3-theme-dark"
+    >
       Next <i class="fa-solid fa-angle-right"></i>
     </a>
+    {% else %}
+    <span class="w3-bar-item w3-button w3-disabled">
+      Next <i class="fa-solid fa-angle-right"></i>
+    </span>
+    {% endif %}
 
     <!-- Last page -->
-    <a href="/page/17" class="w3-bar-item w3-button w3-theme-dark">
+    {% if articles_page.has_next() %}
+    <a
+      href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html"
+      class="w3-bar-item w3-button w3-theme-dark"
+    >
       Last <i class="fa-solid fa-angles-right"></i>
     </a>
+    {% else %}
+    <span class="w3-bar-item w3-button w3-disabled">
+      Last <i class="fa-solid fa-angles-right"></i>
+    </span>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
