@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% block head_meta %}
+    {% if articles_page.twitter_username %}
+        <meta name="twitter:creator" content="@{{ articles_page.object_list[0].twitter_username }}"/>
+    {% elif TWITTER_USERNAME %}
+        <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"/>
+    {% endif %}
+
+    <meta name="description" content="{{ articles_page.summary | striptags | safe }}"/>
+{% endblock %}
+
 {% block content %}
     <div class="sr-theme-light">
         <h1>{{ articles_page.object_list[0].title }}</h1>
@@ -13,31 +23,36 @@
         <div role="group">
             <!-- First page -->
             {% if articles_page.has_previous() %}
-                <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i class="fa-solid fa-angles-left"></i> First</a>
+                <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i
+                        class="fa-solid fa-angles-left"></i> First</a>
             {% else %}
                 <span role="button" class="secondary" disabled><i class="fa-solid fa-angles-left"></i> First</span>
             {% endif %}
 
             <!-- Previous page -->
             {% if articles_page.has_previous() %}
-                <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" role="button" class="secondary sr-theme-darker"><i class="fa-solid fa-angle-left"></i> Previous</a>
+                <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" role="button"
+                   class="secondary sr-theme-darker"><i class="fa-solid fa-angle-left"></i> Previous</a>
             {% else %}
                 <span role="button" class="secondary" disabled><i class="fa-solid fa-angle-left"></i> Previous</span>
             {% endif %}
 
             <!-- Page indicator -->
-            <span role="button" class="sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+            <span role="button"
+                  class="sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
 
             <!-- Next page -->
             {% if articles_page.has_next() %}
-                <a href="{{ SITEURL }}/{{ articles_next_page.url }}" role="button" class="secondary sr-theme-darker">Next <i class="fa-solid fa-angle-right"></i></a>
+                <a href="{{ SITEURL }}/{{ articles_next_page.url }}" role="button" class="secondary sr-theme-darker">Next
+                    <i class="fa-solid fa-angle-right"></i></a>
             {% else %}
                 <span role="button" class="secondary" disabled>Next <i class="fa-solid fa-angle-right"></i></span>
             {% endif %}
 
             <!-- Last page -->
             {% if articles_page.has_next() %}
-                <a href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html" role="button" class="secondary sr-theme-darker">Last <i class="fa-solid fa-angles-right"></i></a>
+                <a href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html" role="button"
+                   class="secondary sr-theme-darker">Last <i class="fa-solid fa-angles-right"></i></a>
             {% else %}
                 <span role="button" class="secondary" disabled>Last <i class="fa-solid fa-angles-right"></i></span>
             {% endif %}
