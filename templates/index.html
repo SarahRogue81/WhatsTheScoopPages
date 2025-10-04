@@ -3,10 +3,10 @@
 {% block content %}
     <div class="sr-theme-light">
         <h1>{{ articles_page.object_list[0].title }}</h1>
-        <div style="text-align: right; font-size: 16px;">by {{ AUTHOR }}
+        <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
             on {{ articles_page.object_list[0].date.strftime("%B %d, %Y") }}</div>
     </div>
-    <div style="margin-top: 16px;">{{ articles_page.object_list[0].content }}</div>
+    <div class="sr-margin-top">{{ articles_page.object_list[0].content }}</div>
 
     <!-- Navigation arrows -->
     <div class="container-fluid sr-center">

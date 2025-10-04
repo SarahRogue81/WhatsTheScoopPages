@@ -1,9 +1,25 @@
+body, h1, h2, h3, h4, h5 {
+    font-family: "Raleway", sans-serif;
+}
+
+pre, code {
+    font-family: "IBM Plex Mono", monospace;
+}
+
 .sr-xxxlarge {
     font-size: 48px;
 }
 
 .sr-text-bold {
     font-weight: bold;
+}
+
+.sr-text-small {
+    font-size: 16px;
+}
+
+.sr-text-center {
+    text-align: center;
 }
 
 .sr-centre {
@@ -17,6 +33,18 @@
 
 .sr-border {
     border: 1px solid black;
+}
+
+.sr-margin-top {
+    margin-top: 16px;
+}
+
+.sr-right-align {
+    text-align: right;
+}
+
+.sr-center {
+    text-align: center;
 }
 
 .sr-theme {
