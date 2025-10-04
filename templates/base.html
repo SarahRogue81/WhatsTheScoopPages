@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/pico-main/css/pico.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}">
+</head>
+<body>
+<header class="container-fluid sr-theme sr-centre">
+    {% block header %}
+        <div class="sr-xxxlarge sr-text-bold">{{ SITENAME }}</div>
+    {% endblock %}
+</header>
+
+<nav class="container-fluid sr-theme-darker">
+    <a href="{{ SITEURL }}/" class="w3-btn sr-theme-dark">
+        <button class="secondary">Home</button>
+    </a>
+</nav>
+
+
+<main class="container-fluid">
+    <article class="sr-panel sr-border">
+        {% block content %}{% endblock %}
+    </article>
+</main>
+
+<footer class="container-fluid sr-theme-light sr-centre">
+    <div>Copyright {{ YEAR }} {{ AUTHOR }}</div>
+    <div>
+        <a href="{{ LICENSE_URL | default('https://creativecommons.org/licenses/by/4.0/') }}">{{ LICENSE | default('Attribution 4.0 International') }}</a>
+        license
+    </div>
+    <div>Powered by <a href="https://picocss.com/">Pico CSS</a></div>
+</footer>
+
+<script src="https://kit.fontawesome.com/{{ FONT_AWESOME }}.js" crossorigin="anonymous"></script>
+</body>
+</html>

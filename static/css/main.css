@@ -1,0 +1,38 @@
+.sr-xxxlarge {
+    font-size: 48px;
+}
+
+.sr-text-bold {
+    font-weight: bold;
+}
+
+.sr-centre {
+    text-align: center;
+}
+
+.sr-panel {
+    margin: 16px;
+    padding: 16px;
+}
+
+.sr-border {
+    border: 1px solid black;
+}
+
+.sr-theme {
+    color: white;
+    background-color: #795548;
+}
+
+.sr-theme-light {
+    color: white;
+    background-color: #b89588;
+}
+
+.sr-theme-dark {
+    background-color: #553c33;
+}
+
+.sr-theme-darker {
+    background-color: #3d2b24;
+}
