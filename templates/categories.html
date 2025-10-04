@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}categories - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+    <h2>categories on {{ SITENAME }}</h2>
+
+    <div class="container-fluid">
+        <p>
+            {% for category, articles in categories|sort %}
+                <span class="sr-light-grey sr-margin-bottom"><a
+                        href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</span>
+            {% endfor %}
+        </p>
+    </div>
+{% endblock %}
