@@ -26,6 +26,24 @@
         <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
     {% block head_meta %}{% endblock %}
+    {% if page_name == 'index' and FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/
+                {% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+              type="application/atom+xml"
+              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
+    {% elif category and CATEGORY_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/
+
+
+                {% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL }}{% else %}{{ CATEGORY_FEED_ATOM }}{% endif %}"
+              type="application/atom+xml"
+              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
+    {% elif tag and TAG_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/
+                {% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL }}{% else %}{{ TAG_FEED_ATOM }}{% endif %}"
+              type="application/atom+xml"
+              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
+    {% endif %}
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
@@ -60,9 +78,30 @@
             <button class="secondary sr-theme-dark">{{ page.title }}</button>
         </a>
     {% endfor %}
-    </div>
-</nav>
+    {% if page_name == 'index' and FEED_ALL_ATOM %}
+        <a href="{{ FEED_DOMAIN }}/
+                {% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">
+            <button class="secondary sr-theme-dark">
+                <li class="fa-solid fa-atom"></li>
+            </button>
+        </a>
+    {% elif category and CATEGORY_FEED_ATOM %}
+        <a href="{{ FEED_DOMAIN }}/
 
+                {% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL }}{% else %}{{ CATEGORY_FEED_ATOM }}{% endif %}">
+            <button class="secondary sr-theme-dark">
+                <li class="fa-solid fa-atom"></li>
+            </button>
+        </a>
+    {% elif tag and TAG_FEED_ATOM %}
+        <a href="{{ FEED_DOMAIN }}/
+                {% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL }}{% else %}{{ TAG_FEED_ATOM }}{% endif %}">
+            <button class="secondary sr-theme-dark">
+                <li class="fa-solid fa-atom"></li>
+            </button>
+        </a>
+    {% endif %}
+</nav>
 
 <main class="container-fluid">
     <article class="sr-panel sr-border">
