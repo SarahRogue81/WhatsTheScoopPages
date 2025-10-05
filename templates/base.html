@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://sarah-rogue.me" crossorigin/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     {% if page_name == 'index' %}
-        <link rel="canonical" href="{{ SITEURL }}/"/>
+        <link rel="canonical" href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}"/>
     {% elif article %}
         <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}"/>
     {% elif page %}
@@ -33,8 +33,6 @@
               rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
     {% elif category and CATEGORY_FEED_ATOM %}
         <link href="{{ FEED_DOMAIN }}/
-
-
                 {% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL }}{% else %}{{ CATEGORY_FEED_ATOM }}{% endif %}"
               type="application/atom+xml"
               rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
@@ -78,29 +76,6 @@
             <button class="secondary sr-theme-dark">{{ page.title }}</button>
         </a>
     {% endfor %}
-    {% if page_name == 'index' and FEED_ALL_ATOM %}
-        <a href="{{ FEED_DOMAIN }}/
-                {% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">
-            <button class="secondary sr-theme-dark">
-                <li class="fa-solid fa-atom"></li>
-            </button>
-        </a>
-    {% elif category and CATEGORY_FEED_ATOM %}
-        <a href="{{ FEED_DOMAIN }}/
-
-                {% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL }}{% else %}{{ CATEGORY_FEED_ATOM }}{% endif %}">
-            <button class="secondary sr-theme-dark">
-                <li class="fa-solid fa-atom"></li>
-            </button>
-        </a>
-    {% elif tag and TAG_FEED_ATOM %}
-        <a href="{{ FEED_DOMAIN }}/
-                {% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL }}{% else %}{{ TAG_FEED_ATOM }}{% endif %}">
-            <button class="secondary sr-theme-dark">
-                <li class="fa-solid fa-atom"></li>
-            </button>
-        </a>
-    {% endif %}
 </nav>
 
 <main class="container-fluid">
