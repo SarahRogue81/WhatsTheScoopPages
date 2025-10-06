@@ -130,7 +130,7 @@
         <a href="{{ LICENSE_URL | default('https://creativecommons.org/licenses/by/4.0/') }}">{{ LICENSE | default('Attribution 4.0 International') }}</a>
         license
     </div>
-    <div>Powered by <a href="https://picocss.com/">Pico CSS</a></div>
+    <div>Powered by <a href="https://picocss.com/">Pico CSS</a>{% if HOSTING_PROVIDER %} and <a href="{{ HOSTING_PROVIDER_URL }}">{{ HOSTING_PROVIDER }}</a>{% endif %}</div>
 </footer>
 
 <script src="https://kit.fontawesome.com/{{ FONT_AWESOME }}.js" crossorigin="anonymous"></script>
