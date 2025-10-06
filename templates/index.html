@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block head_meta %}
-    {% if articles_page.object_list[0].twitter_username %}
-        <meta name="twitter:creator" content="@{{ articles_page.object_list[0].twitter_username }}"/>
+    {% if articles[0].twitter_username %}
+        <meta name="twitter:creator" content="@{{ articles[0].twitter_username }}"/>
     {% elif TWITTER_USERNAME %}
         <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
 
-    <meta name="description" content="{{ articles_page.object_list[0].summary | striptags | safe }}"/>
+    <meta name="description" content="{{ articles[0].summary | striptags | safe }}"/>
 {% endblock %}
 
 {% block content %}
     <div class="sr-theme-light">
-        <h1>{{ articles_page.object_list[0].title }}</h1>
+        <h1>{{ articles[0].title }}</h1>
         <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
-            on {{ articles_page.object_list[0].date.strftime("%B %d, %Y") }}</div>
+            on {{ articles[0].date.strftime("%B %d, %Y") }}</div>
     </div>
-    <div class="sr-margin-top">{{ articles_page.object_list[0].content }}</div>
+    <div class="sr-margin-top">{{ articles[0].content }}</div>
 
     <!-- Navigation arrows -->
     <div class="container-fluid sr-center">
