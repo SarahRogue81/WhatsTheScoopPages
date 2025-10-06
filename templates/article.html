@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head_meta %}
+    {% if article.twitter_username %}
+        <meta name="twitter:creator" content="@{{ article.twitter_username }}"/>
+    {% elif TWITTER_USERNAME %}
+        <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"/>
+    {% endif %}
+
+    <meta name="description" content="{{ article.summary | striptags | safe }}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="sr-theme-light">
+        <h1>{{ article.title }}</h1>
+        <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
+            on {{ article.date.strftime("%B %d, %Y") }}</div>
+    </div>
+    <div class="sr-margin-top">{{ article.content }}</div>
+{% endblock %}
