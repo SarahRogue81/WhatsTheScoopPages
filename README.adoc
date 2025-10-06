@@ -1,14 +1,16 @@
 = What's The Scoop?™
 
-this is a link:https://getpelican.com/[Pelican] theme with a link:https://www.w3schools.com/w3css/default.asp[W3.CSS] UI
+this is a link:https://getpelican.com/[Pelican] theme with a link:https://picocss.com/[Pico CSS] UI
 
 this theme displays one article per page
 
 so be sure `DEFAULT_PAGINATION` is set to one:
 
-[source, python]
+[source,python]
 ```
 DEFAULT_PAGINATION = 1
 ```
+
+for more information, please visit the link:https://github.com/SarahRogue81/WhatsTheScoop/wiki[wiki]
 
 enjoy!
