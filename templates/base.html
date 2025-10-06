@@ -81,6 +81,49 @@
     </article>
 </main>
 
+{% if page_name and (page_name.startswith('index') or page_name.startswith('category') or tag and page_name.startswith('tag')) %}
+    <!-- Navigation arrows -->
+    <nav class="container-fluid sr-center">
+        <div role="group">
+            <!-- First page -->
+            {% if articles_page.has_previous() %}
+                <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i
+                        class="fa-solid fa-angles-left"></i> First</a>
+            {% else %}
+                <span role="button" class="secondary" disabled><i class="fa-solid fa-angles-left"></i> First</span>
+            {% endif %}
+
+            <!-- Previous page -->
+            {% if articles_page.has_previous() %}
+                <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" role="button"
+                   class="secondary sr-theme-darker"><i class="fa-solid fa-angle-left"></i> Previous</a>
+            {% else %}
+                <span role="button" class="secondary" disabled><i class="fa-solid fa-angle-left"></i> Previous</span>
+            {% endif %}
+
+            <!-- Page indicator -->
+            <span role="button"
+                  class="sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+
+            <!-- Next page -->
+            {% if articles_page.has_next() %}
+                <a href="{{ SITEURL }}/{{ articles_next_page.url }}" role="button" class="secondary sr-theme-darker">Next
+                    <i class="fa-solid fa-angle-right"></i></a>
+            {% else %}
+                <span role="button" class="secondary" disabled>Next <i class="fa-solid fa-angle-right"></i></span>
+            {% endif %}
+
+            <!-- Last page -->
+            {% if articles_page.has_next() %}
+                <a href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html" role="button"
+                   class="secondary sr-theme-darker">Last <i class="fa-solid fa-angles-right"></i></a>
+            {% else %}
+                <span role="button" class="secondary" disabled>Last <i class="fa-solid fa-angles-right"></i></span>
+            {% endif %}
+        </div>
+    </nav>
+{% endif %}
+
 <footer class="container-fluid sr-theme-light sr-text-centre">
     <div>Copyright {{ YEAR }} {{ AUTHOR }}</div>
     <div>
