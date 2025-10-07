@@ -82,8 +82,8 @@
 
 {% if page_name and (page_name.startswith('index') or page_name.startswith('category') or tag and page_name.startswith('tag')) %}
     <!-- Navigation arrows -->
-    <nav class="container-fluid sr-center">
-        <div role="group">
+    <nav class="container-fluid sr-text-centre">
+        <div role="group" class="sr-paginator">
             <!-- First page -->
             {% if articles_page.has_previous() %}
                 <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i
@@ -124,12 +124,12 @@
 {% endif %}
 
 <footer class="container-fluid sr-theme-light sr-text-centre">
-    <div>Copyright {{ YEAR }} {{ AUTHOR }}</div>
-    <div>
+    Copyright {{ CURRENT_YEAR }} {{ AUTHOR }}
+    <br/>
         <a href="{{ LICENSE_URL | default('https://creativecommons.org/licenses/by/4.0/') }}">{{ LICENSE | default('Attribution 4.0 International') }}</a>
         license
-    </div>
-    <div>Powered by <a href="https://picocss.com/">Pico CSS</a>{% if HOSTING_PROVIDER %} and <a href="{{ HOSTING_PROVIDER_URL }}">{{ HOSTING_PROVIDER }}</a>{% endif %}</div>
+    <br/>
+        Powered by <a href="https://picocss.com/">Pico CSS</a>{% if HOSTING_PROVIDER %} and <a href="{{ HOSTING_PROVIDER_URL }}">{{ HOSTING_PROVIDER }}</a>{% endif %}
 </footer>
 
 <script src="https://kit.fontawesome.com/{{ FONT_AWESOME }}.js" crossorigin="anonymous"></script>
