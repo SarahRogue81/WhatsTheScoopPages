@@ -11,10 +11,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="sr-theme-light sr-padding">
+    <header class="sr-article-header sr-theme-light sr-padding">
         <h1>{{ articles[0].title }} <span class="sr-theme-light sr-float-right sr-text-small"><a href="{{ SITEURL }}/{{ articles[0].url }}">permalink</a></span></h1>
         <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
             on {{ articles[0].date.strftime("%B %d, %Y") }}</div>
-    </div>
+    </header>
     <div class="sr-margin-top">{{ articles[0].content }}</div>
 {% endblock %}
