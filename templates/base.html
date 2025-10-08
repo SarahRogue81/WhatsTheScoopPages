@@ -87,17 +87,17 @@
             <!-- First page -->
             {% if articles_page.has_previous() %}
                 <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i
-                        class="fa-solid fa-angles-left"></i> First</a>
+                        class="fa-solid fa-angles-left"></i> first</a>
             {% else %}
-                <span role="button" class="secondary" disabled><i class="fa-solid fa-angles-left"></i> First</span>
+                <span role="button" class="secondary" disabled><i class="fa-solid fa-angles-left"></i> first</span>
             {% endif %}
 
             <!-- Previous page -->
             {% if articles_page.has_previous() %}
                 <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" role="button"
-                   class="secondary sr-theme-darker"><i class="fa-solid fa-angle-left"></i> Previous</a>
+                   class="secondary sr-theme-darker"><i class="fa-solid fa-angle-left"></i> previous</a>
             {% else %}
-                <span role="button" class="secondary" disabled><i class="fa-solid fa-angle-left"></i> Previous</span>
+                <span role="button" class="secondary" disabled><i class="fa-solid fa-angle-left"></i> previous</span>
             {% endif %}
 
             <!-- Page indicator -->
@@ -106,18 +106,18 @@
 
             <!-- Next page -->
             {% if articles_page.has_next() %}
-                <a href="{{ SITEURL }}/{{ articles_next_page.url }}" role="button" class="secondary sr-theme-darker">Next
+                <a href="{{ SITEURL }}/{{ articles_next_page.url }}" role="button" class="secondary sr-theme-darker">next
                     <i class="fa-solid fa-angle-right"></i></a>
             {% else %}
-                <span role="button" class="secondary" disabled>Next <i class="fa-solid fa-angle-right"></i></span>
+                <span role="button" class="secondary" disabled>next <i class="fa-solid fa-angle-right"></i></span>
             {% endif %}
 
             <!-- Last page -->
             {% if articles_page.has_next() %}
                 <a href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html" role="button"
-                   class="secondary sr-theme-darker">Last <i class="fa-solid fa-angles-right"></i></a>
+                   class="secondary sr-theme-darker">last <i class="fa-solid fa-angles-right"></i></a>
             {% else %}
-                <span role="button" class="secondary" disabled>Last <i class="fa-solid fa-angles-right"></i></span>
+                <span role="button" class="secondary" disabled>last <i class="fa-solid fa-angles-right"></i></span>
             {% endif %}
         </div>
     </nav>
