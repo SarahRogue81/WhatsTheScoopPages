@@ -5,15 +5,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://sarah-rogue.me" crossorigin/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    {% if page_name == 'index' or category or tag %}
-        <link rel="canonical" href="{{ SITEURL }}/{{ articles[0].url }}"/>
+    {% if page_name and (page_name.startswith('index') or page_name.startswith('category') or tag and page_name.startswith('tag')) %}
+        <link rel="canonical" href="{{ SITEURL }}/{{ articles[articles_page.number - 1].url }}"/>
     {% elif article %}
         <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}"/>
     {% elif page %}
         <link rel="canonical" href="{{ SITEURL }}/{{ page.url }}"/>
-    {% elif page_name == "categories" %}
+    {% elif page_name and page_name == "categories" %}
         <link rel="canonical" href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS | default('categories.html') }}"/>
-    {% elif page_name == "tags" %}
+    {% elif page_name and page_name == "tags" %}
         <link rel="canonical" href="{{ SITEURL }}/{{ TAGS_SAVE_AS | default('tags.html') }}"/>
     {% endif %}
     <meta charset="utf-8"/>
