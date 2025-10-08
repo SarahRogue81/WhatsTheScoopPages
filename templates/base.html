@@ -124,7 +124,7 @@
 {% endif %}
 
 <footer class="container-fluid sr-theme-light sr-text-centre">
-    Copyright {{ CURRENT_YEAR }} {{ AUTHOR }}
+    Copyright {{ CURRENT_YEAR | default(2025) }} {{ AUTHOR }}
     <br/>
         <a href="{{ LICENSE_URL | default('https://creativecommons.org/licenses/by/4.0/') }}">{{ LICENSE | default('Attribution 4.0 International') }}</a>
         license
