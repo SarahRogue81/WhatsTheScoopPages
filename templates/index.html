@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block head_meta %}
-    {% if articles[0].twitter_username %}
+    {% if articles[articles_page.number - 1].twitter_username %}
         <meta name="twitter:creator" content="@{{ articles[0].twitter_username }}"/>
     {% elif TWITTER_USERNAME %}
         <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
 
-    <meta name="description" content="{{ articles[0].summary | striptags | safe }}"/>
+    <meta name="description" content="{{ articles[articles_page.number - 1].summary | striptags | safe }}"/>
 {% endblock %}
 
 {% block content %}
     <header class="sr-article-header sr-theme-light sr-padding">
-        <h1>{{ articles[0].title }} <span class="sr-theme-light sr-float-right sr-text-small"><a href="{{ SITEURL }}/{{ articles[0].url }}">permalink</a></span></h1>
+        <h1>{{ articles[articles_page.number - 1].title }} <span class="sr-theme-light sr-float-right sr-text-small"><a href="{{ SITEURL }}/{{ articles[0].url }}">permalink</a></span></h1>
         <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
-            on {{ articles[0].date.strftime("%B %d, %Y") }}</div>
+            on {{ articles[articles_page.number - 1].date.strftime("%B %d, %Y") }}</div>
     </header>
-    <div class="sr-margin-top">{{ articles[0].content }}</div>
+    <div class="sr-margin-top">{{ articles[articles_page.number - 1].content }}</div>
 {% endblock %}
