@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}authors - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+    <h2>tags on {{ SITENAME }}</h2>
+
+    <div class="container-fluid">
+        <p>
+            {% for author, articles in authorss|sort %}
+                <span class="sr-theme-light sr-padding-8 sr-margin-bottom"><a
+                        href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles | count }})</span>
+            {% endfor %}
+        </p>
+    </div>
+{% endblock %}
