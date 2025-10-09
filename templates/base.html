@@ -28,7 +28,7 @@
         <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
     {% block head_meta %}{% endblock %}
-    {% if page_name == 'index' and FEED_ALL_ATOM %}
+    {% if page_name and page_name.startswith('index') and FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
               type="application/atom+xml"
               rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
