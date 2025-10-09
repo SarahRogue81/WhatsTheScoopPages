@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://sarah-rogue.me" crossorigin/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    {% if page_name and (page_name.startswith('index') or page_name.startswith('category') or tag and page_name.startswith('tag')) %}
+    {% if page_name and (page_name.startswith('index') or page_name.startswith('category') or tag or author) %}
         <link rel="canonical" href="{{ SITEURL }}/{{ articles[articles_page.number - 1].url }}"/>
     {% elif article %}
         <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}"/>
