@@ -2,7 +2,7 @@
 
 {% block head_meta %}
     {% if META_DESCRIPTION %}
-        <meta name="description" content="{{ META_DESCRIPTION }}" />
+        <meta name="description" content="{{ META_DESCRIPTION }}"/>
     {% endif %}
 
     {% if articles[articles_page.number - 1].twitter_username %}
@@ -16,9 +16,12 @@
 
 {% block content %}
     <header class="sr-article-header sr-theme-light sr-padding">
-        <h1>{{ articles[articles_page.number - 1].title }} <span class="sr-theme-light sr-float-right sr-text-small"><a href="{{ SITEURL }}/{{ articles[0].url }}">permalink</a></span></h1>
-        <div class="sr-right-align sr-text-small">by {{ AUTHOR }}
-            on {{ articles[articles_page.number - 1].date.strftime("%B %d, %Y") }}</div>
+        <h1>{{ articles[articles_page.number - 1].title }} <span class="sr-theme-light sr-float-right sr-text-small">
+            <a href="{{ SITEURL }}/{{ articles[0].url }}">permalink</a></span></h1>
+        <div class="sr-right-align sr-text-small">
+            by {% if articles[articles_page.number - 1].author %}{{ articles[articles_page.number - 1].author }}{% else %}{{ AUTHOR }}{% endif %}
+            on {{ articles[articles_page.number - 1].date.strftime("%B %d, %Y") }}
+        </div>
     </header>
     <div class="sr-margin-top">{{ articles[articles_page.number - 1].content }}</div>
 {% endblock %}
