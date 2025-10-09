@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block head_meta %}
+    {% if META_DESCRIPTION %}
+        <meta name="description" content="{{ META_DESCRIPTION }}" />
+    {% endif %}
+
     {% if articles[articles_page.number - 1].twitter_username %}
         <meta name="twitter:creator" content="@{{ articles[0].twitter_username }}"/>
     {% elif TWITTER_USERNAME %}
