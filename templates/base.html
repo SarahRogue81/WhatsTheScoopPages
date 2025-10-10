@@ -94,7 +94,7 @@
 {% if page_name and (page_name.startswith('index') or (category and page_name.startswith('category')) or (tag and page_name.startswith('tag')) or (author and page_name.startswith('author'))) %}
     <!-- Navigation arrows -->
     <nav class="container-fluid sr-text-centre">
-        <div role="group" class="sr-paginator">
+        <div role="group" class="paginator">
             <!-- First page -->
             {% if articles_page.has_previous() %}
                 <a href="{{ SITEURL }}/{{ page_name }}.html" role="button" class="secondary sr-theme-darker"><i
@@ -113,7 +113,7 @@
 
             <!-- Page indicator -->
             <span role="button"
-                  class="sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+                  class="paginator-indicator sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
 
             <!-- Next page -->
             {% if articles_page.has_next() %}
