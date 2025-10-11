@@ -91,7 +91,8 @@
     </article>
 </main>
 
-{% if page_name and (page_name.startswith('index') or (category and page_name.startswith('category')) or (tag and page_name.startswith('tag')) or (author and page_name.startswith('author'))) %}
+{% if page_name and (page_name.startswith('index') or (category and page_name.startswith('category')) or
+     (tag and page_name.startswith('tag')) or (author and page_name.startswith('author'))) %}
     <!-- Navigation arrows -->
     <nav class="container-fluid sr-text-centre">
         <div role="group" class="paginator">
@@ -113,7 +114,8 @@
 
             <!-- Page indicator -->
             <span role="button"
-                  class="paginator-indicator sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+                  class="paginator-indicator sr-theme-light">{{ articles_page.number }} of {{ articles_paginator.num_pages }}
+            </span>
 
             <!-- Next page -->
             {% if articles_page.has_next() %}
@@ -125,7 +127,7 @@
 
             <!-- Last page -->
             {% if articles_page.has_next() %}
-                <a href="{{ SITEURL }}/index{{ articles_paginator.num_pages }}.html" role="button"
+                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html" role="button"
                    class="secondary sr-theme-darker">last <i class="fa-solid fa-angles-right"></i></a>
             {% else %}
                 <span role="button" class="secondary" disabled>last <i class="fa-solid fa-angles-right"></i></span>
