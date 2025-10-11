@@ -67,22 +67,28 @@
     <a href="{{ SITEURL }}/">
         <button class="secondary sr-theme-dark">home</button>
     </a>
-    <a href="{{ SITEURL }}/categories.html">
-        <button class="secondary sr-theme-dark">categories</button>
-    </a>
-    <a href="{{ SITEURL }}/tags.html">
-        <button class="secondary sr-theme-dark">tags</button>
-    </a>
-    {% if SHOW_AUTHORS %}
+    {% if DISPLAY_CATEGORIES_ON_MENU %}
+        <a href="{{ SITEURL }}/categories.html">
+            <button class="secondary sr-theme-dark">categories</button>
+        </a>
+    {% endif %}
+    {% if DISPLAY_TAGS_ON_MENU %}
+        <a href="{{ SITEURL }}/tags.html">
+            <button class="secondary sr-theme-dark">tags</button>
+        </a>
+    {% endif %}
+    {% if DISPLAY_AUTHORS_ON_MENU %}
         <a href="{{ SITEURL }}/authors.html">
             <button class="secondary sr-theme-dark">authors</button>
         </a>
     {% endif %}
-    {% for page in pages %}
-        <a href="{{ SITEURL }}/{{ page.url }}">
-            <button class="secondary sr-theme-dark">{{ page.title }}</button>
-        </a>
-    {% endfor %}
+    {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page in pages %}
+            <a href="{{ SITEURL }}/{{ page.url }}">
+                <button class="secondary sr-theme-dark">{{ page.title }}</button>
+            </a>
+        {% endfor %}
+    {% endif %}
 </nav>
 
 <main class="container-fluid">
