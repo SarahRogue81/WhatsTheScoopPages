@@ -15,7 +15,7 @@
         <h1>{{ article.title }}</h1>
         <div class="sr-right-align sr-text-small">
             by {% if article.author %}{{ article.author }}{% else %}{{ AUTHOR }}{% endif %}
-            on {{ article.date.strftime("%B %d, %Y") }}
+            on {{ article.date.strftime("%d %B, %Y") }}
         </div>
     </header>
     <div class="sr-margin-top">{{ article.content }}</div>

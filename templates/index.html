@@ -16,7 +16,7 @@
             <a href="{{ SITEURL }}/{{ articles[articles_page.number - 1].url }}">permalink</a></span></h1>
         <div class="sr-right-align sr-text-small">
             by {% if articles[articles_page.number - 1].author %}{{ articles[articles_page.number - 1].author }}{% else %}{{ AUTHOR }}{% endif %}
-            on {{ articles[articles_page.number - 1].date.strftime("%B %d, %Y") }}
+            on {{ articles[articles_page.number - 1].date.strftime("%d %B, %Y") }}
         </div>
     </header>
     <div class="sr-margin-top">{{ articles[articles_page.number - 1].content }}</div>
