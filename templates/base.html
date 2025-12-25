@@ -21,7 +21,7 @@
     <meta charset="utf-8"/>
     <base href="{{ SITEURL }}/"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="dark">
     <meta name="robots" content="{{ ROBOTS_CONTENT | default('noindex, nofollow') }}"/>
     <meta name="twitter:card" content="{{ TWITTER_CARD_VALUE | default('summary') }}">
     {% if TWITTER_USERNAME %}
@@ -52,7 +52,7 @@
     <link rel="manifest" href="/manifest.json"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"/>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/pico-main/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}">
     {% if OVERRIDE_CSS %}<link rel="stylesheet" href="{{ SITEURL }}/css/{{ OVERRIDE_CSS }}"/>{% endif %}
 </head>
