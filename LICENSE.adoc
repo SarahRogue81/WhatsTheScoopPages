@@ -1,6 +1,6 @@
 = MIT License
 
-_Copyright (c) 2025 Sarah Rogue_
+_Copyright (c) 2026 Sarah Rogue_
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
