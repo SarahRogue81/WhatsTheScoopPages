@@ -1,16 +1,13 @@
-= What's The Scoop?™
+= What's The Scoop?™ Pages
 
 this is a link:https://getpelican.com/[Pelican] theme with a link:https://picocss.com/[Pico CSS] UI
 
-this theme displays one article per page
+this theme displays pages as links in the menu bar
 
-so be sure `DEFAULT_PAGINATION` is set to one:
+it displays the main index page (Home) and the other pages are listed in a menu bar in the top navbar
 
-[source,python]
-```
-DEFAULT_PAGINATION = 1
-```
+there can be a Blog menu item (page) listing each article on that page. Pelican `tags` and `catgories` are *not* currently supported but may be if there's enough demand for them. me personally, i do not need them rn
 
-for more information, please visit the link:https://github.com/SarahRogue81/WhatsTheScoop/wiki[wiki]
+in the future, i hope to add the ability to have a static _*Contact Me*_ page
 
 enjoy!
