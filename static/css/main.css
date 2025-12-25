@@ -52,7 +52,15 @@ pre, code {
 }
 
 .sr-xxxlarge {
-    font-size: 48px;
+    font-size: xxx-large;
+}
+
+.sr-red {
+    color: red;
+}
+
+.sr-green {
+    color: green;
 }
 
 .sr-theme {
