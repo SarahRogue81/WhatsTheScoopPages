@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
 {% block head_meta %}
-    {% if articles[articles_page.number - 1].twitter_username %}
-        <meta name="twitter:creator" content="@{{ articles[articles_page.number - 1].twitter_username }}"/>
-    {% elif TWITTER_USERNAME %}
+    {% if articles[0].creator %}
+        <meta name="twitter:creator" content="@{{ articles[0].creator }}"/>
+    {% else %}
         <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
-
-    <meta name="description" content="{{ articles[articles_page.number - 1].summary | striptags | safe }}"/>
+    <meta name="description" content="{{ articles[0].summary}}"/>
 {% endblock %}
 
 {% block content %}
-    <div class="sr-margin-top">{{ articles[articles_page.number - 1].content }}</div>
+    {% for article in articles %}
+        <article>
+            <div class="sr-float-right">{{ article.date.strftime("%d %b %Y") }}</div>
+            <div>{{ article.content }}</div>
+        </article>
+        <hr/>
+    {% endfor %}
 {% endblock %}
