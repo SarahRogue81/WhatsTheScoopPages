@@ -11,12 +11,5 @@
 {% endblock %}
 
 {% block content %}
-    <header class="sr-article-header sr-theme-light sr-padding">
-        <h1>{{ articles[articles_page.number - 1].title }}</h1>
-        <div class="sr-right-align sr-text-small">
-            by {% if articles[articles_page.number - 1].author %}{{ articles[articles_page.number - 1].author }}{% else %}{{ AUTHOR }}{% endif %}
-            on {{ articles[articles_page.number - 1].date.strftime("%d %B, %Y") }}
-        </div>
-    </header>
     <div class="sr-margin-top">{{ articles[articles_page.number - 1].content }}</div>
 {% endblock %}
