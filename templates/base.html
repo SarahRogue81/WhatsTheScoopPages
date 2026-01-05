@@ -28,23 +28,6 @@
         <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}"/>
     {% endif %}
     {% block head_meta %}{% endblock %}
-    {% if page_name and page_name.startswith('index') and FEED_ALL_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
-              type="application/atom+xml"
-              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
-    {% elif category and CATEGORY_FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL | replace('{slug}', category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM | replace('{slug}', category.slug) }}{% endif %}"
-              type="application/atom+xml"
-              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
-    {% elif tag and TAG_FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL | replace('{slug}', tag.slug) }}{% else %}{{ TAG_FEED_ATOM | replace('{slug}', tag.slug) }}{% endif %}"
-              type="application/atom+xml"
-              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
-    {% elif author and AUTHOR_FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{% if AUTHOR_FEED_ATOM_URL %}{{ AUTHOR_FEED_ATOM_URL | replace('{slug}', author.slug) }}{% else %}{{ AUTHOR_FEED_ATOM | replace('{slug}', author.slug) }}{% endif %}"
-              type="application/atom+xml"
-              rel="alternate" title="{{ SITENAME|striptags }} Atom Feed"/>
-    {% endif %}
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
@@ -66,21 +49,6 @@
     <a href="{{ SITEURL }}/">
         <button class="secondary sr-theme-dark">home</button>
     </a>
-    {% if DISPLAY_CATEGORIES_ON_MENU %}
-        <a href="{{ SITEURL }}/categories.html">
-            <button class="secondary sr-theme-dark">categories</button>
-        </a>
-    {% endif %}
-    {% if DISPLAY_TAGS_ON_MENU %}
-        <a href="{{ SITEURL }}/tags.html">
-            <button class="secondary sr-theme-dark">tags</button>
-        </a>
-    {% endif %}
-    {% if DISPLAY_AUTHORS_ON_MENU %}
-        <a href="{{ SITEURL }}/authors.html">
-            <button class="secondary sr-theme-dark">authors</button>
-        </a>
-    {% endif %}
     {% if DISPLAY_PAGES_ON_MENU %}
         {% for page in pages %}
             <a href="{{ SITEURL }}/{{ page.url }}">
